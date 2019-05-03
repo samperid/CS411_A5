@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h1 style="text-align: center;">Check out these awesome recipes!</h1>
+<p>
+<!-- <ul>
+  {% for recipe in recipe_list %}
+    <li><a href="{{ recipe.url }}">{{ recipe.label }}</a></li>
+    <img src="{{recipe.image}}"></img>
+  {% endfor %}
+ </ul> -->
+ <table style="margin-left: auto;margin-right: auto;">
+    	<tr>
+    		<th>Recipe</th>
+    		<th>Image</th>
+    		<th>Calories</th>
+    		<th>Yield</th>
+    		<th>Calorie Single</th>
+    	</tr>
+    	{% for recipe in recipe_list %}
+    	<tr>
+    		<th><a href="{{ recipe.url }}">{{ recipe.label }}</a></th>
+    		<th><img src="{{recipe.image}}"></img></th>
+    		<th>{{ recipe.calories }}</th>
+    		<th>{{ recipe.yield }}</th>
+    		<th>{{ recipe.calories/recipe.yield }}</th>
+    	</tr>
+    	{% endfor %}
+    </table>
+</p>
+{% endblock %}

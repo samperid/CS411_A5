@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block body %}
+<body style="background-color:#feffe8;">
+<style>
+td, th {
+  border: 1px solid #dddddd;
+}
+</style>
+<h1 style="text-align: center;">Check out these awesome recipes for {{Food}}!</h1>
+<div style="text-align: center;">
+<h2>Input Dietary/Health Restrctions which apply to you:</h2>
+<form action="/sorted_recipe" method=post>
+<div>
+  <input type="checkbox" name="High-Fiber" value="High-Fiber">High Fiber
+  <input type="checkbox" name="High-Protein" value="High-Protein">High Protein
+  <input type="checkbox" name="Low-Carb" value="Low-Carb">Low Carb
+  <input type="checkbox" name="Low-Fat" value="Low-Fat">Low Fat
+  <input type="checkbox" name="Low-Sodium" value="Low-Sodium">Low Sodium
+</div>
+<br>
+<div>
+  <input type="checkbox" name="Dairy-Free" value="Dairy-Free">Dairy Free
+  <input type="checkbox" name="Kosher" value="Kosher">Kosher
+  <input type="checkbox" name="Peanut-Free" value="Peanut-Free">Peanut Free
+  <input type="checkbox" name="Tree-Nut-Free" value="Tree-Nut-Free">Tree Nut Free
+  </div>
+  <br>
+  <input type="submit">
+</form>
+</div>
+
+<table style="margin-left: auto;margin-right: auto;text-align:center;">
+	<tr>
+		<th>Recipe</th>
+		<th>Image</th>
+		<th>Calories</th>
+		<th>Servings</th>
+		<th>Calories Per Serving</th>
+	</tr>
+	{% for recipe in recipe_list %}
+	<tr>
+        <td style="text-align:center;"><a href="{{ recipe.url }}">{{ recipe.label }}</a></td>
+        <td style="text-align:center;"><img src="{{recipe.image}}"></img></td>
+        <td style="text-align:center;">{{ recipe.calories }}</td>
+        <td style="text-align:center;">{{ recipe.yield }}</td>
+        <td style="text-align:center;">{{ recipe.calories/recipe.yield }}</td>
+	</tr>
+	{% endfor %}
+</table>
+{% endblock %}

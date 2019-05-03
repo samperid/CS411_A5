@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block body %}
+<body style="background-color:#feffe8;">
+<h1 style="text-align:center;">Login success!</h1>
+<h2 style="text-align:center;">Check out your calorie info below!</h2>
+
+<div>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sed ante ultricies, dictum est eget, venenatis lacus. Donec tincidunt sem ut libero gravida, ut rutrum urna lacinia. Cras quis mauris vitae sapien porta fermentum non in turpis. Integer eleifend vestibulum nisi nec cursus. Pellentesque pretium sem at nibh vulputate, ut cursus nunc facilisis. Sed nec lorem volutpat leo blandit lobortis. Pellentesque leo felis, posuere in augue et, blandit tempor metus.
+
+Cras imperdiet gravida diam, eget tincidunt elit gravida nec. Aenean ac tellus nulla. Sed dapibus purus sed odio pulvinar, finibus laoreet mi dictum. Quisque eget tincidunt massa. Vestibulum ullamcorper justo eu placerat iaculis. Pellentesque et odio tincidunt, venenatis orci et, ornare urna. Donec sagittis risus sem, eget aliquam quam eleifend sit amet. Donec feugiat finibus tellus. Morbi felis ligula, lacinia ac odio quis, maximus tristique nibh. Suspendisse tempor imperdiet lorem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras sed diam metus. Integer non metus nec urna elementum vehicula ut vehicula risus. Nunc consectetur justo at mi varius placerat.
+
+{{username}}
+</p>
+</div>
+
+<div class="block1">
+<form align=center action="/recipe" method=post>
+    <label for="Calories">Calories: </label>
+    {% if Calories %}
+    <input id="Calories" name="Calories" type="text" autocomplete=off value="{{Calories}}" required />
+    {% else %}
+    <input id="Calories" name="Calories" type="text" autocomplete=off value="" required />
+    {% endif %}
+    <label for="Food">What foods are you craving???: </label>
+    {% if Food %}
+    <input id="Food" name="Food" type="text" autocomplete=off value="{{Food}}" required />
+    {% else %}
+    <input id="Food" name="Food" type="text" autocomplete=off value="" required />
+    {% endif %}
+    <input id="submit" name="submit" type="submit" value="Submit" class="btn-sm btn-primary" />
+</form>
+
+</div>
+{% endblock %}
